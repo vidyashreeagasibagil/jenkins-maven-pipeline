@@ -1,5 +1,8 @@
 pipeline{
   agent any
+  environment{
+    PASS=credentials('DockerHub')
+  }
   stages{
     stage('Build'){
       steps{
