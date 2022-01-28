@@ -2,7 +2,7 @@ pipeline{
   agent any
   environment{
     PASS=credentials('DockerHub')
-    dockerRun='docker run -p 8080:8080 -d -name maven-project vidyaaydiv/maven-project:2'
+    dockerRun='docker run -p 8080:8080 -d --name maven-project vidyaaydiv/maven-project:2'
   }
   stages{
     stage('Build'){
