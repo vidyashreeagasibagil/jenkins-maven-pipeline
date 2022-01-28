@@ -2,7 +2,6 @@ pipeline{
   agent any
   environment{
     PASS=credentials('DockerHub')
-    dockerRun='docker run -p 8080:8080 -d --name maven-project vidyaaydiv/maven-project:2'
   }
   stages{
     stage('Build'){
@@ -30,7 +29,7 @@ pipeline{
     }
     stage('Deploy'){
       steps{
-          sh "ssh -o StrictHostKeyChecking=no ec2-user@184.72.65.174 ${dockerRun}"
+          sh "docker -H ssh://ec2-user@172.31.24.7 run -d -p 8080:8080 vidyaaydiv/maven-project"
       }
     }
   }
