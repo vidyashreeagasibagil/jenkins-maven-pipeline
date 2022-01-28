@@ -7,6 +7,6 @@ echo $PASS >> /tmp/.auth
 
 
 
-scp /tmp/.auth ec2-user@172.31.24.7:/tmp/
-scp ./jenkins/deploy/publish ec2-user@172.31.24.7:/tmp/publish
-ssh -o StrictHostKeyChecking=no ec2-user@172.31.24.7 "/tmp/publish"
+scp /tmp/.auth prod-user@192.168.43.247:/tmp/
+scp ./jenkins/deploy/publish prod-user@192.168.43.247:/tmp/publish
+ssh -o StrictHostKeyChecking=no prod-user@192.168.43.247 "/tmp/publish"
