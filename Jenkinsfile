@@ -29,7 +29,9 @@ pipeline{
     }
     stage('Deploy'){
       steps{
-          sh "docker run -d -p 8090:80 vidyaaydiv/maven-project:2"
+          sh '''
+          ./jenkins/deploy/deploy.sh
+          '''
       }
     }
   }
