@@ -30,7 +30,7 @@ pipeline{
     }
     stage('Deploy'){
       steps{
-          sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.24.7 ${dockerRun}"
+          sh "ssh -o StrictHostKeyChecking=no ec2-user@184.72.65.174 ${dockerRun}"
       }
     }
   }
