@@ -29,10 +29,10 @@ pipeline{
     }
     stage('Deploy'){
       steps{
-        sh '''
-           ./jenkins/deploy/deploy.sh
-
-           '''
+        def dockerRun='docker run -p 8080:8080 -d -name maven-project vidyaaydiv/maven-project:2'
+        ssshagent(['184.72.65.174']) {
+          sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.24.7 ${dockerRun}"
+         }
       }
     }
   }
